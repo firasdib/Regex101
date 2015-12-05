@@ -11,4 +11,4 @@ Looking for an offline app? Check out this OSX app made by @aurbano: https://git
 ------
 Important notice
 =======
-I am currently in the process of updating the website, if you have any suggestions, send me an email at `contact@regex101.com` and I will send you an invitation to our slack channel were you can help me in any way you can.
+I am currently in the process of updating the website, if you have any suggestions and want to help, send me an email at `contact@regex101.com` and I will send you an invitation to the slack channel.
