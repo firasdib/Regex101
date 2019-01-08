@@ -14,6 +14,7 @@ about: Report a bug
 
 
 ### Browser
-
+//Include browser name and version
 
 ### OS
+Include OS name and version
