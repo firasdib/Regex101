@@ -6,6 +6,8 @@ about: Report a bug with the quiz
 
 ## Quiz Bug
 
+DO NOT POST QUIZ SOLUTIONS!
+
 ### Task
 Please write both task name and number.
 
