@@ -17,5 +17,7 @@ Please write both task name and number.
 If there are any test cases you think need to be added, you can write that here as well.
 
 ### Browser
+Include browser name and version
 
 ### OS
+Include OS name and version
