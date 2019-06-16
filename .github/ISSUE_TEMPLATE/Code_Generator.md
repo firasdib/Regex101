@@ -1,6 +1,7 @@
 ---
 name: Code Generator
 about: Request or submit a new Code Generator
+labels: code generator
 
 ---
 

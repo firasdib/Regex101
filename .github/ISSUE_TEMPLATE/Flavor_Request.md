@@ -1,6 +1,7 @@
 ---
 name: Flavor Request
 about: Request a new regex flavor
+labels: flavor request
 
 ---
 

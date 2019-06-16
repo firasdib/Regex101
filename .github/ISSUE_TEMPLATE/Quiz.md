@@ -1,6 +1,7 @@
 ---
 name: Quiz
 about: Report a bug with the quiz
+labels: quiz, bug
 
 ---
 
