@@ -42,6 +42,18 @@ class Swift5_2 extends PureComponent {
     return result
   }
 
+  // Removes the value from the given array, if existent, and return whether a value was removed.
+  // Requires the first argument to be an instance of array.
+  _removeValueFromArray(array, value) {
+    let indexOfValue = array.indexOf(value)
+    if (indexOfValue > -1) {
+      array.splice(indexOfValue, 1)
+      return true
+    } else {
+      return false
+    }
+  }
+
   //
   // Render functions
 
@@ -56,14 +68,37 @@ class Swift5_2 extends PureComponent {
   _renderCode() {
     const { regex, flags, delimiter, testString, isSubstituting, substString, isGlobal } = this.props;
 
-    const codeString = new CodeString();
-    const includesXFlag = flags.includes("x");
+    const codeString = new CodeString()
+
+    var options = []
+    this._removeValueFromArray(flags, "g")
+    if (this._removeValueFromArray(flags, "m")) {
+      options.push(".anchorsMatchLines")
+    }
+    if (this._removeValueFromArray(flags, "i")) {
+      options.push(".caseInsensitive")
+    }
+    if (this._removeValueFromArray(flags, "x")) {
+      options.push(".allowCommentsAndWhitespace")
+    }
+    if (this._removeValueFromArray(flags, "s")) {
+      options.push(".dotMatchesLineSeparators")
+    }
+    var formattedOptions = ""
+    if (options.length == 1) {
+      formattedOptions += ", options: "
+      formattedOptions += options[0]
+    } else if (options.length > 1) {
+      formattedOptions += ", options: ["
+      formattedOptions += options.join(", ")
+      formattedOptions += "]"
+    }
 
     // Generate code string
     codeString.append(`import Foundation`)
     codeString.append()
     codeString.append(`let pattern = ${this._escapeSwiftString(regex.toString())}`)
-    codeString.append(`let regex = try! NSRegularExpression(pattern: pattern, options: ` + (includesXFlag ? `.anchorsMatchLines` : `[]`) + `)`)
+    codeString.append(`let regex = try! NSRegularExpression(pattern: pattern${formattedOptions})`)
     codeString.append(`let testString = ${this._escapeSwiftString(testString)}`)
     codeString.append(`let stringRange = NSRange(location: 0, length: testString.utf16.count)`)
 
