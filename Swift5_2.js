@@ -97,6 +97,43 @@ class Swift5_2 extends PureComponent {
     // Generate code string
     codeString.append(`import Foundation`)
     codeString.append()
+
+    if (flags.length > 0) {
+      // Show notes to the user if they included an unsupported flag
+      if (flags.indexOf("X") > -1) {
+        codeString.append(`// WARNING: You included a flag that Swift doesn't support: X`)
+        codeString.append(`//          When this flag is set, it causes any backslash in the pattern that is followed by a letter that has no special meaning to cause an error.`)
+        codeString.append(`//          By default in Swift, a backslash followed by a letter with no special meaning will be treated as a literal.`)
+      }
+      if (flags.indexOf("u") > -1) {
+        codeString.append(`// WARNING: You included a flag that Swift doesn't support: u`)
+        codeString.append(`//          When this flag is set, it makes the pattern and subject strings to be treated as unicode.`)
+        codeString.append(`//          Swift already treats the pattern and subject strings as unicode by default, so including this flag is redundant.`)
+      }
+      if (flags.indexOf("J") > -1) {
+        codeString.append(`// WARNING: You included a flag that Swift doesn't support: J`)
+        codeString.append(`//          Wehn this flag is set, it allows duplicated capturing group names.`)
+        codeString.append(`//          By default, Swift captures only the last value matched for a repeated capture group.`)
+        codeString.append(`//          As an alternative, the pattern can be modified to contain one capturing group per group you want to get in the result.`)
+      }
+      if (flags.indexOf("A") > -1) {
+        codeString.append(`// WARNING: You included a flag that Swift doesn't support: A`)
+        codeString.append(`//          When this flag is set, it causes the pattern to be "anchored", that is, it is constrained to match only at the start of the string which is being searched (the "subject string").`)
+        codeString.append(`//          As an alternative, this effect can also be achieved by appropriate constructs in the pattern itself.`)
+      }
+      if (flags.indexOf("U") > -1) {
+        codeString.append(`// WARNING: You included a flag that Swift doesn't support: U`)
+        codeString.append(`//          When this flag is set, it inverts the "greediness" of the quantifiers so that they are not greedy by default, but become greedy if followed by '?'.`)
+        codeString.append(`//          As an alternative, this effect can also be achieved by setting a (?U) modifier setting within the pattern or by a question mark behind a quantifier (e.g. .*?).`)
+      }
+      if (flags.indexOf("D") > -1) {
+        codeString.append(`// WARNING: You included a flag that Swift doesn't support: D`)
+        codeString.append(`//          When this flag is set, it forces the a dollar sign ('$'), to always match end of the string, instead of end of the line. This option is ignored if the 'm' flag is set.`)
+        codeString.append(`//          There's no equivalent implementation of this flag in Swift, but you may want to check the 'm' flag instead.`)
+      }
+      codeString.append()
+    }
+
     codeString.append(`let pattern = ${this._escapeSwiftString(regex.toString())}`)
     codeString.append(`let regex = try! NSRegularExpression(pattern: pattern${formattedOptions})`)
     codeString.append(`let testString = ${this._escapeSwiftString(testString)}`)
