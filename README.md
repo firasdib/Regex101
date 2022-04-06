@@ -18,7 +18,7 @@ For an [overview of existing codegen and flavor requests, please visit the GitHu
 Sponsors
 ========
 
-[![Doppler](https://user-images.githubusercontent.com/1335165/154338821-51fd6594-474b-4528-b8f7-220ee9850911.png)](https://www.doppler.com/?utm_campaign=github_repo&utm_medium=referral&utm_content=awesomeforbeginners&utm_source=github)
+[![Doppler](https://user-images.githubusercontent.com/1335165/154338821-51fd6594-474b-4528-b8f7-220ee9850911.png)](https://www.doppler.com/?utm_campaign=github_repo&utm_medium=referral&utm_content=regex101&utm_source=github)
 
 
 [All your environment variables, in one place](https://www.doppler.com/?utm_campaign=github_repo&utm_medium=referral&utm_content=regex101&utm_source=github)
